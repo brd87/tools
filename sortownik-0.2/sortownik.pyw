@@ -8,7 +8,7 @@ with open('list.txt', 'r') as f:
     size = int(f.readline().strip())
     fromfolder = f.readline().strip()
     for i in f:
-        i=i.strip().split()
+        i=i.strip().split(" ", 1)
         if i:
             key, val = i
             lista[key] = val
