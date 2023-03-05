@@ -18,6 +18,7 @@ list.json template:
     }
 }
 
+template tips:
 - The maximum file for sorting is 200MB
-- Files will be sorted only from directory C:\downloads
+- Files will be sorted only from directory A:\\example
 - Only files from host pbs.twimg.com (twitter) and scontent-waw1-1.xx.fbcdn.net (facebook) will be sorted
