@@ -1,24 +1,16 @@
 How to use:
 1. Download and ran browser extension for renaming downloaded files
    https://github.com/brd87/Extensions/tree/main/2M
-2. Create list.json in the appdata\roaming\sortownik\
-3. Inside list.json in the "size" variable, change value to any maximum file size in bytes and in the "download" to 
-   directory from which you want to sort files
-4. Variables inside "list" scope should be named same as their hosts which names you can find by using the extension for the downloaded files. Value shoud be
-   directory where you want to move files from particular host
-5. After creating list.json you can run the sortownik.pyw manualy or move it to autostart folder in appdata
+2. Drop sortownik.pyw in C:\Users\user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+3. Drop list.json in C:\Users\huber\AppData\Roaming\sortownik
+4. File sortownik_launcher.pyw can be anywhere, but I recomend to put it in same place as list.json and create a shortcut
+5. Run sortownik_launcher.pyw, and provide informations you want. Parameter description is in Param section of readme.
+6. After setting all informations press the Save button and then Reset Sortownik to run it with new parameters.
+7. Sortownik will work in the background everytime you start the computer.
 
-list.json template:
-{
-    "size":200000000,
-    "download":"A:\\example",
-    "list":{
-        "pbs.twimg.com":"A:\\test\\tw",
-        "scontent-waw1-1.xx.fbcdn.net":"A:\\test\\tw"
-    }
-}
-
-template tips:
-- The maximum file for sorting is 200MB
-- Files will be sorted only from directory A:\\example
-- Only files from host pbs.twimg.com (twitter) and scontent-waw1-1.xx.fbcdn.net (facebook) will be sorted
+Param:
+Maximum size in bytes - provided value will be used as a limit when choosing files for sorting (recommended 200000000)
+Directory for sorting - as the name suggest here you place the folder address from which the program will draw files
+Host name - here you provide the host of a downloaded file (the section before "-" in the file name)
+Host directory - place where you want to put the files of a particualr host
+Host to remove - option to remove unwanted hosts from sorting

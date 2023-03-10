@@ -6,6 +6,9 @@ roaming = os.getenv('APPDATA')
 data = {}
 with open(roaming+'\sortownik\list.json', 'r') as f:
     data = json.load(f)
+with open(roaming + '\sortownik\list.json', 'w') as f:
+        data.update({"pid": os.getpid()})
+        json.dump(data, f)
 while True:
     time.sleep(1)
     for filename in os.listdir(data["download"]):
