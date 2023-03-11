@@ -1,6 +1,5 @@
 import tkinter as tk
 import os
-import shutil
 import json
 import tkinter as tk
 
