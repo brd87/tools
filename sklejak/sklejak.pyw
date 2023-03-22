@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from PIL import Image
 import datetime
-import os
 
 root = tk.Tk()
 root.geometry("340x170")
