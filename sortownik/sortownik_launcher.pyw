@@ -1,7 +1,6 @@
 import tkinter as tk
 import os
 import json
-import tkinter as tk
 
 import subprocess
 
@@ -45,20 +44,47 @@ selectI.set(list_options[0])
 list_dropdown = tk.OptionMenu(root, selectI, *list_options)
 list_dropdown.pack()
 
+def my_remove():
+    selectI.set('')
+    list_dropdown['menu'].delete(0,'end')
+def my_add():
+    my_remove()
+    for opt in list_options: 
+        list_dropdown['menu'].add_command(label=opt, command=tk._setit(selectI, opt))
+    selectI.set(list_options[0])
+
+def update_host_controls():
+    hostI.delete(0,tk.END)
+    hostI.insert(0,"")
+    hostdI.delete(0,tk.END)
+    hostdI.insert(0,"")
+    my_add()
+
 def save_data():
+    global list_options
     print("inside save")
+
     if sizeI.get()!="":
         size = int(sizeI.get())
         data["size"] = size
+
     if downloadI.get()!="":
         download = downloadI.get()
         data["download"] = download
+
     if hostdI.get()!="" and hostI.get()!="":
         host = hostI.get()
         hostd = hostdI.get()
-        if host in data["list"]: data["list"][host] = hostd
-        else: data["list"].update({host: hostd})
-    if selectI.get()!="": del data["list"][selectI.get()]
+        
+        data["list"][host] = hostd
+        list_options = [""] + list(data["list"].keys())
+        update_host_controls()
+
+    if selectI.get()!="": 
+        del data["list"][selectI.get()]
+        list_options = [""] + list(data["list"].keys())
+        update_host_controls()
+
     with open(roaming + "\sortownik\list.json", "w") as f:
         json.dump(data, f)
 
