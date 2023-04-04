@@ -1,5 +1,5 @@
 How to use:
-1. Download and ran browser extension for renaming downloaded files
+1. Download and ran this browser extension (you need it to use Sortownik)
    https://github.com/brd87/Extensions/tree/main/2M
 2. Drop sortownik.pyw in C:\Users\user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 3. Drop list.json in C:\Users\huber\AppData\Roaming\sortownik
